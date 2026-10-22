@@ -4,10 +4,13 @@ import Header from "./components/shared/Header"
 import Home from "./pages/Home"
 import Cart from "./components/Cart"
 import ProductList from "./pages/ProductList"
+import CartProvider from "./context/CartProvider"
+
 
 function App() {
   return (
     <BrowserRouter>
+      <CartProvider>
       <Header/>
         <main>
           <Routes>
@@ -18,6 +21,7 @@ function App() {
           </Routes>
         </main>
       <Footer/>
+      </CartProvider>
     </BrowserRouter>
   )
 }
