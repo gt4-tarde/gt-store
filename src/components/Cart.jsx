@@ -3,7 +3,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import './Cart.css'
-// import useCart from '../context/useCart'
+import useCart from '../context/useCart'
 
 const currency = new Intl.NumberFormat('pt-BR', {
   style: 'currency',
@@ -11,7 +11,7 @@ const currency = new Intl.NumberFormat('pt-BR', {
 })
 
 export default function Cart() {
-//   const { items, removeItem, updateQuantity, clearCart, total } = useCart()
+  const { items, removeItem, updateQuantity, clearCart, total } = useCart()
   const [purchaseCompleted, setPurchaseCompleted] = useState(false)
 
   function handleCheckout() {
@@ -29,15 +29,15 @@ export default function Cart() {
     )
   }
 
-//   if (items.length === 0) {
-//     return (
-//       <section className="cart cart--empty">
-//         <h1>Seu carrinho está vazio</h1>
-//         <p>Adicione seus produtos favoritos para vê-los aqui.</p>
-//         <Link className="cart__continue" to="/produtos">Explorar produtos</Link>
-//       </section>
-//     )
-//   }
+  if (items.length === 0) {
+    return (
+      <section className="cart cart--empty">
+        <h1>Seu carrinho está vazio</h1>
+        <p>Adicione seus produtos favoritos para vê-los aqui.</p>
+        <Link className="cart__continue" to="/produtos">Explorar produtos</Link>
+      </section>
+    )
+  }
 
   return (
     <section className="cart">
@@ -48,7 +48,7 @@ export default function Cart() {
 
       <div className="cart__layout">
         <div className="cart__items">
-          {/* {items.map((item) => (
+          {items.map((item) => (
             <article className="cart-item" key={item.id}>
               <img src={item.image} alt={item.name} />
               <div className="cart-item__info">
@@ -71,14 +71,14 @@ export default function Cart() {
                 </button>
               </div>
             </article>
-          ))} */}
+          ))}
         </div>
 
         <aside className="cart-summary">
           <h2>Resumo do pedido</h2>
           <div>
             <span>Subtotal</span>
-            {/* <strong>{currency.format(total)}</strong> */}
+            <strong>{currency.format(total)}</strong>
           </div>
           <div>
             <span>Frete</span>
@@ -87,7 +87,7 @@ export default function Cart() {
           <hr />
           <div className="cart-summary__total">
             <span>Total</span>
-            {/* <strong>{currency.format(total)}</strong> */}
+            <strong>{currency.format(total)}</strong>
           </div>
           <button className="cart-summary__checkout" type="button" onClick={handleCheckout}>
             Finalizar compra
