@@ -6,6 +6,7 @@ import {
   faTiktok,
   faWhatsapp,
 } from '@fortawesome/free-brands-svg-icons'
+import logo from '../../assets/logo-gt.png'
 import './Footer.css'
 
 const supportLinks = ['Central de ajuda', 'Como comprar', 'Métodos de pagamento', 'Trocas e devoluções', 'Fale conosco']
@@ -64,7 +65,7 @@ export default function Footer() {
         <section>
           <h2>Baixe o app GT Store</h2>
           <div className="site-footer__app">
-            <img className="site-footer__qr" alt="Logo GT Store" />
+            <img className="site-footer__qr" src={logo} alt="Logo GT Store" />
             <div className="site-footer__stores">
               <a href="#">App Store</a>
               <a href="#">Google Play</a>
