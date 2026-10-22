@@ -1,26 +1,7 @@
 import { Carousel } from "react-bootstrap"
+import slides from '../data/slidesList'
 import './Carousel.css'
-
-const slides = [
-    {
-        image:
-            'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=80',
-        title: 'Tudo para o seu estilo',
-        description: 'Encontre peças que combinam com você.',
-    },
-    {
-        image:
-            'https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=80',
-        title: 'Novidades da estação',
-        description: 'Descubra as tendências que acabaram de chegar.',
-    },
-    {
-        image:
-            'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=80',
-        title: 'Ofertas especiais',
-        description: 'Aproveite condições exclusivas por tempo limitado.',
-    },
-];
+import { Link } from "react-router-dom";
 
 function CarouselComponent() {
     return (
@@ -38,6 +19,9 @@ function CarouselComponent() {
                     <Carousel.Caption className="shop-carousel__caption">
                         <h2>{slide.title}</h2>
                         <p>{slide.description}</p>
+                        <Link className="shop-carousel__link" to="/produtos">
+                            Ver produtos
+                        </Link>
                     </Carousel.Caption>
                 </Carousel.Item>
             ))}
